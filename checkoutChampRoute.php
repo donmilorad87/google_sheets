@@ -53,6 +53,11 @@ function jsonResponse($statusCode, $success, $message) {
     exit;
 }
 
+
+
+
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     try {
         
@@ -65,26 +70,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
     
-   
+    // Example of processing logic (this could be form validation, database operations, etc.)
+    // For demonstration, we'll just use a random boolean for success/failure
         if (
             isset($data['for_me']) && isset($data['for_me']) &&
             isset($data['for_me_answer']) && isset($data['for_me_answer']) &&
             isset($data['for_a_friend']) && isset($data['for_a_friend']) &&
             isset($data['for_a_friend_answer']) && isset($data['for_a_friend_answer']) &&
             isset($data['UUID']) && isset($data['UUID'])
-            
-            ) {
+        ) {
             $values = [
                [
-                 $data['UUID'],
-                 $data['for_me'],
+                  $data['UUID'],
+                  $data['for_me'],
                   $data['for_me_answer'],
-                   $data['for_a_friend'],
-                    $data['for_a_friend_answer'],
-                    date('Y-m-d H:i:s')
-                ]
+                  $data['for_a_friend'],
+                  $data['for_a_friend_answer'],
+                  date('Y-m-d H:i:s')
+               ]
             ];
-         
+        
             $body = new Google_Service_Sheets_ValueRange([
             	'values' => $values
             ]);
@@ -100,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             );
             
             if($result->updates->updatedRows == 1){
-            	echo "Success";
+            	echo 'Thank you for taking this quiz!';
             } else {
             	echo "Fail";
             }
