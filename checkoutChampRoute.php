@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             ) {
             $values = [
                [
+                 $data['UUID'],
                  $data['for_me'],
                   $data['for_me_answer'],
                    $data['for_a_friend'],
