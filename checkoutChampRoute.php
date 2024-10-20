@@ -70,7 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             isset($data['for_me']) && isset($data['for_me']) &&
             isset($data['for_me_answer']) && isset($data['for_me_answer']) &&
             isset($data['for_a_friend']) && isset($data['for_a_friend']) &&
-            isset($data['for_a_friend_answer']) && isset($data['for_a_friend_answer'])
+            isset($data['for_a_friend_answer']) && isset($data['for_a_friend_answer']) &&
+            isset($data['UUID']) && isset($data['UUID'])
             
             ) {
             $values = [
